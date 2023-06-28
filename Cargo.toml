@@ -2,7 +2,12 @@
 name = "dnsxy"
 version = "0.1.0"
 edition = "2021"
-
+description = "A simple DNS server for proxied queries"
+authors = ["y0k4i"]
+license = "Apache-2.0"
+repository = "https://github.com/y0k4i-1337/dnsxy"
+readme = "README.md"
+license-file = "LICENSE"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
