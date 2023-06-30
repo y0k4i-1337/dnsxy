@@ -1,3 +1,6 @@
+mod proxy;
+
+use std::error::Error;
 use clap::{Parser};
 
 #[derive(Debug, Parser)]
@@ -20,7 +23,15 @@ struct Cli {
     port: u16,
 }
 
-fn main() {
+fn main() -> Result<(), Box<dyn Error>> {
     let cli = Cli::parse();
-    println!("{:?}", cli);
+    // println!("{:?}", cli);
+
+    // Parse the SOCKS proxy address and port
+    let proxy_addr = proxy::parse_proxy(&cli.proxy)?;
+
+    println!("Listening on {}:{}", cli.address, cli.port);
+    println!("Using proxy {}", proxy_addr);
+
+    Ok(())
 }
